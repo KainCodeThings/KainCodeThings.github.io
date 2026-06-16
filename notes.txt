@@ -1,0 +1,670 @@
+================================================================================
+                          HTML & HTML5 NOTES
+================================================================================
+
+
+--------------------------------------------------------------------------------
+ PAGE SETUP
+--------------------------------------------------------------------------------
+
+DOCTYPE
+    Tells the browser which version of HTML is being used.
+    Must be the very first line of every HTML document.
+
+    <!DOCTYPE html>                 -- HTML5 (current standard)
+
+
+BASIC PAGE STRUCTURE
+    Every HTML file follows this skeleton:
+
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Page Title</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <!-- page content goes here -->
+        </body>
+    </html>
+
+
+COMMENTS
+    <!-- This is a comment -- not visible on the page, only in the code -->
+    Used to leave notes for yourself or others reading the code.
+
+
+--------------------------------------------------------------------------------
+ HEAD TAG  <head></head>
+--------------------------------------------------------------------------------
+
+    Contains information ABOUT the page -- none of it is visible to the user.
+
+    <title></title>
+        Sets the name shown in the browser tab and bookmarks.
+        Example: <title>My Website</title>
+
+    <meta charset="UTF-8">
+        Tells the browser to use UTF-8 encoding so special characters display
+        correctly. Self-closing tag.
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        Makes the page scale correctly on phones and tablets. Always include.
+
+    <meta name="description" content="Brief summary of the page">
+        Short description used by search engines in search results.
+
+    <link rel="stylesheet" href="style.css">
+        Links an external CSS file to the page. Best practice for styling.
+
+    <style></style>
+        Used to write CSS directly inside the HTML file instead of a separate
+        file. Placed inside <head>.
+
+    <script src="script.js"></script>
+        Links an external JavaScript file. Usually placed just before </body>
+        so the page content loads first.
+
+
+--------------------------------------------------------------------------------
+ BODY TAG  <body></body>
+--------------------------------------------------------------------------------
+
+    Everything inside <body> is what the user actually sees on the page.
+
+
+ATTRIBUTES
+    Attributes give extra information to an HTML tag.
+    They are always written inside the opening tag as name="value" pairs.
+
+    Syntax:  <tagname attribute="value">content</tagname>
+    Example: <a href="https://google.com">Click here</a>
+
+    Common attributes used on almost any tag:
+        id="name"           -- unique identifier for ONE element on the page
+        class="name"        -- reusable label applied to multiple elements
+        style="prop:value"  -- inline CSS styling (see STYLING section)
+        title="text"        -- tooltip shown when hovering over the element
+        hidden              -- hides the element from the page
+
+
+--------------------------------------------------------------------------------
+ TEXT & HEADINGS
+--------------------------------------------------------------------------------
+
+HEADINGS  <h1> through <h6>
+    Six levels of headings, from largest to smallest priority.
+    Use only ONE <h1> per page (it is the main title).
+
+    <h1>Main Page Title</h1>
+    <h2>Section Title</h2>
+    <h3>Subsection Title</h3>
+    <h4>Smaller Heading</h4>
+    <h5>Even Smaller</h5>
+    <h6>Smallest Heading</h6>
+
+
+PARAGRAPHS & TEXT FORMATTING  <p></p>
+    Used to hold blocks of regular text.
+
+    <p>This is a paragraph of text.</p>
+
+    Text formatting tags (used INSIDE other tags like <p>):
+        <b></b>         bold
+        <strong></strong>   bold with added importance (preferred over <b>)
+        <i></i>         italic
+        <em></em>       italic with added emphasis (preferred over <i>)
+        <u></u>         underline
+        <s></s>         strikethrough
+        <mark></mark>   highlighted text
+        <small></small> smaller text
+        <sup></sup>     superscript  e.g. X<sup>2</sup> = X squared
+        <sub></sub>     subscript    e.g. H<sub>2</sub>O = water
+        <br>            line break -- self-closing, no end tag needed
+        <hr>            horizontal divider line -- self-closing
+
+
+SPECIAL CHARACTERS (HTML Entities)
+    Some characters need a code so the browser does not confuse them with HTML.
+
+    &copy;      -- copyright symbol  ©
+    &amp;       -- ampersand  &
+    &lt;        -- less-than  <
+    &gt;        -- greater-than  >
+    &nbsp;      -- non-breaking space (prevents a line break between words)
+
+
+--------------------------------------------------------------------------------
+ LINKS & NAVIGATION
+--------------------------------------------------------------------------------
+
+ANCHOR TAG  <a></a>
+    Creates a clickable link. Can link to external pages, other pages on your
+    site, or to a specific section on the same page.
+
+    Attributes:
+        href="URL"          the destination of the link
+        target="_blank"     opens the link in a new browser tab
+        target="_self"      opens in the same tab (default)
+
+    Examples:
+        <a href="https://google.com">Visit Google</a>
+        <a href="about.html">About Page</a>
+        <a href="#section1">Jump to Section 1</a>   -- links to id="section1"
+        <a href="mailto:you@email.com">Email Me</a>
+
+
+--------------------------------------------------------------------------------
+ IMAGES
+--------------------------------------------------------------------------------
+
+IMAGE TAG  <img>
+    Self-closing tag -- no end tag needed. Displays an image.
+
+    Attributes:
+        src="path/filename.jpg"   location of the image file (required)
+        alt="description"         text shown if image fails to load (required)
+        width="300"               width in pixels
+        height="200"              height in pixels
+
+    Examples:
+        <img src="photo.jpg" alt="A sunset photo" width="500">
+        <img src="images/logo.png" alt="Company logo">    -- image in subfolder
+
+    Supported formats: .jpg, .jpeg, .png, .gif, .webp, .svg
+
+
+--------------------------------------------------------------------------------
+ LISTS
+--------------------------------------------------------------------------------
+
+UNORDERED LIST  <ul></ul>
+    Displays a bullet-point list. Each item is wrapped in <li></li>.
+
+    <ul>
+        <li>Apples</li>
+        <li>Oranges</li>
+        <li>Bananas</li>
+    </ul>
+
+
+ORDERED LIST  <ol></ol>
+    Displays a numbered list. Each item is also wrapped in <li></li>.
+
+    <ol>
+        <li>First step</li>
+        <li>Second step</li>
+        <li>Third step</li>
+    </ol>
+
+
+DESCRIPTION LIST  <dl></dl>
+    Used for term/definition pairs.
+
+    <dl>
+        <dt>HTML</dt>
+        <dd>The language used to structure web pages.</dd>
+    </dl>
+
+    Tags:  <dl> = list container, <dt> = term, <dd> = description
+
+
+--------------------------------------------------------------------------------
+ LAYOUT & CONTAINERS
+--------------------------------------------------------------------------------
+
+DIV  <div></div>
+    A generic block-level container. Groups elements together for layout or
+    styling. Takes up the full width of its parent by default.
+
+    <div class="card">
+        <h2>Title</h2>
+        <p>Some content here.</p>
+    </div>
+
+
+SPAN  <span></span>
+    A generic inline container. Used to style a small piece of text or content
+    without breaking the flow of the line.
+
+    <p>This word is <span style="color:red;">red</span>.</p>
+
+
+--------------------------------------------------------------------------------
+ INLINE STYLING
+--------------------------------------------------------------------------------
+
+STYLE ATTRIBUTE
+    Used to apply CSS directly to a single element.
+    Syntax: style="property:value; property:value;"
+
+    <p style="color:blue; font-size:18px;">Styled text</p>
+
+    Common style properties:
+        color               text color       e.g. color:red;  or  color:#FF0000;
+        background-color    background       e.g. background-color:yellow;
+        font-size           text size        e.g. font-size:16px;
+        font-family         font type        e.g. font-family:Arial, sans-serif;
+        font-weight         boldness         e.g. font-weight:bold;
+        text-align          alignment        e.g. text-align:center;
+        margin              space outside    e.g. margin:10px;
+        padding             space inside     e.g. padding:20px;
+        border              border line      e.g. border:1px solid black;
+        width               element width    e.g. width:300px;
+        height              element height   e.g. height:150px;
+        display             layout type      e.g. display:none; (hides element)
+
+    NOTE: For larger projects, always prefer a separate CSS file over inline
+    styles. It keeps your code cleaner and easier to manage.
+
+
+--------------------------------------------------------------------------------
+ FORMS
+--------------------------------------------------------------------------------
+
+FORM TAG  <form></form>
+    Creates a form that collects and submits user input.
+    Placed inside <body>.
+
+    Attributes:
+        action="URL"        where the form data is sent when submitted
+        method="get/post"   how the data is sent (post is more secure)
+
+    Example structure:
+        <form action="/submit" method="post">
+            <!-- input fields go here -->
+        </form>
+
+
+INPUT TAG  <input>
+    Self-closing tag. The most common way to collect user input.
+
+    Attributes:
+        type            defines what kind of input (see types below)
+        id="name"       unique identifier, used to link with <label>
+        name="name"     used to identify the data when the form is submitted
+        value="text"    pre-filled value
+        placeholder="text"  hint text shown inside the empty field
+        required        makes the field mandatory before submitting
+
+    Input types:
+        type="text"         single line of text
+        type="email"        email address (validates format automatically)
+        type="password"     hides characters as they are typed
+        type="number"       numbers only
+        type="tel"          phone number
+        type="url"          web address
+        type="checkbox"     a tickable box
+        type="radio"        choose one option from a group
+        type="date"         date picker
+        type="file"         lets user upload a file
+        type="range"        slider between a min and max value
+        type="hidden"       not shown to user, sends a value with the form
+        type="submit"       submit button
+        type="reset"        resets all fields to default
+
+
+LABEL TAG  <label></label>
+    Describes what an input field is for. Clicking the label focuses the input.
+
+    <label for="username">Your Name</label>
+    <input type="text" id="username" name="username">
+
+    NOTE: The "for" attribute in <label> must match the "id" of the <input>.
+
+
+TEXTAREA  <textarea></textarea>
+    Multi-line text input field. Not self-closing.
+
+    <textarea name="message" rows="5" cols="40"
+              placeholder="Write your message here..."></textarea>
+
+
+SELECT DROPDOWN  <select></select>
+    Creates a dropdown menu. Each option is wrapped in <option>.
+
+    <select name="color">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
+
+
+BUTTON  <button></button>
+    A clickable button.
+
+    <button type="submit">Send</button>
+    <button type="reset">Clear</button>
+    <button type="button">Click Me</button>   -- generic, used with JavaScript
+
+
+FIELDSET & LEGEND
+    Groups related form fields together with an optional title.
+
+    <fieldset>
+        <legend>Contact Info</legend>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+    </fieldset>
+
+
+FULL FORM EXAMPLE:
+
+    <form action="/submit" method="post">
+
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <label>
+            <input type="checkbox" name="agree"> I agree to the terms
+        </label>
+
+        <button type="submit">Send</button>
+
+    </form>
+
+
+--------------------------------------------------------------------------------
+ TABLES
+--------------------------------------------------------------------------------
+
+TABLE TAG  <table></table>
+    Used to display data in rows and columns.
+
+    Core tags:
+        <table>     outer container for the whole table
+        <tr>        table row
+        <th>        table header cell (bold and centered by default)
+        <td>        table data cell
+
+    Structural grouping tags (optional but good practice):
+        <thead>     groups the header row(s)
+        <tbody>     groups the body/data rows
+        <tfoot>     groups the footer row(s)
+
+    Cell attributes:
+        colspan="2"     makes a cell span 2 columns
+        rowspan="2"     makes a cell span 2 rows
+
+    Table attributes:
+        border="1"          adds a visible border (use CSS for styling instead)
+        cellpadding="10"    space inside each cell
+        cellspacing="5"     space between cells
+
+    Example:
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alice</td>
+                    <td>28</td>
+                    <td>Nashville</td>
+                </tr>
+                <tr>
+                    <td>Bob</td>
+                    <td>34</td>
+                    <td>Memphis</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+--------------------------------------------------------------------------------
+ HTML5 -- SEMANTIC ELEMENTS
+--------------------------------------------------------------------------------
+
+HTML5 introduced tags that describe the PURPOSE of the content, not just how
+it looks. This makes code easier to read and helps search engines and screen
+readers understand page structure.
+
+All semantic elements behave like <div> but carry meaning.
+
+    <header></header>
+        Top section of a page or a section. Typically contains the site
+        logo, site name, and main navigation.
+
+        <header>
+            <h1>My Website</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </header>
+
+    <nav></nav>
+        A group of navigation links. Used for menus, sidebars, or breadcrumbs.
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="account.html">My Account</a>
+        </nav>
+
+    <main></main>
+        The main, unique content of the page. Should only appear once per page.
+        Does not include headers, footers, or sidebars.
+
+    <section></section>
+        A thematic grouping of content, usually with a heading. Think of it
+        as a chapter in a book.
+
+        <section>
+            <h2>About Me</h2>
+            <p>Some text about yourself.</p>
+        </section>
+
+    <article></article>
+        A self-contained piece of content that could stand alone -- like a
+        blog post, news article, or comment. Good replacement for <div>
+        when the content is independent.
+
+        <article>
+            <h2>My First Blog Post</h2>
+            <p>Today I learned HTML...</p>
+        </article>
+
+    <aside></aside>
+        Content that is related to, but separate from, the main content.
+        Used for sidebars, tips, or related links.
+
+    <footer></footer>
+        Bottom section of a page or section. Commonly contains copyright
+        info, privacy policy, contact details, and social links.
+
+        <footer>
+            <p>&copy; 2025 My Name. All rights reserved.</p>
+            <a href="privacy.html">Privacy Policy</a>
+        </footer>
+
+    <figure></figure>  and  <figcaption></figcaption>
+        Used to wrap an image (or diagram or code snippet) with a caption.
+
+        <figure>
+            <img src="chart.png" alt="Sales chart">
+            <figcaption>Figure 1: Sales data for Q1 2025</figcaption>
+        </figure>
+
+    <details></details>  and  <summary></summary>
+        Creates a collapsible dropdown section. Clicking the summary
+        shows or hides the content inside.
+
+        <details>
+            <summary>Click to read more</summary>
+            <p>This content is hidden until clicked.</p>
+        </details>
+
+    <time></time>
+        Marks up a date or time so machines can read it correctly.
+
+        <time datetime="2025-06-07">June 7, 2025</time>
+
+    <progress></progress>
+        Displays a progress bar.
+
+        <progress value="70" max="100"></progress>   -- shows 70% progress
+
+    <meter></meter>
+        Displays a measurement within a known range (e.g. disk usage).
+
+        <meter value="6" min="0" max="10">6 out of 10</meter>
+
+
+--------------------------------------------------------------------------------
+ HTML5 -- MEDIA ELEMENTS
+--------------------------------------------------------------------------------
+
+VIDEO  <video></video>
+    Embeds a video directly in the page without any plugin.
+
+    Attributes:
+        controls        shows play/pause/volume controls
+        autoplay        starts playing automatically (use sparingly)
+        loop            replays when it ends
+        muted           starts muted
+        width / height  size of the video player
+        poster="img"    thumbnail image shown before the video plays
+
+    <video src="clip.mp4" controls width="640" height="360">
+        Your browser does not support video.
+    </video>
+
+
+AUDIO  <audio></audio>
+    Embeds an audio file.
+
+    <audio src="song.mp3" controls>
+        Your browser does not support audio.
+    </audio>
+
+    Multiple source formats for browser compatibility:
+    <audio controls>
+        <source src="song.mp3" type="audio/mpeg">
+        <source src="song.ogg" type="audio/ogg">
+    </audio>
+
+
+CANVAS  <canvas></canvas>
+    A blank drawing area used with JavaScript to draw graphics, charts,
+    animations, and games.
+
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+
+
+--------------------------------------------------------------------------------
+ HTML5 -- GEOLOCATION API
+--------------------------------------------------------------------------------
+
+    HTML5 allows the browser to access the user's location (with permission).
+    This is done with JavaScript using the navigator.geolocation object.
+
+    Example:
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            console.log("Lat: " + lat + ", Lon: " + lon);
+        });
+
+    NOTE: The browser will always ask the user for permission first.
+    Location must be placed in the <body> section via a script.
+
+
+--------------------------------------------------------------------------------
+ HTML5 -- LOCAL STORAGE
+--------------------------------------------------------------------------------
+
+    Lets you save small pieces of data in the browser so it persists even
+    after the page is closed. Useful for saving user preferences.
+    Done with JavaScript.
+
+    localStorage.setItem("username", "Alice");    -- save
+    localStorage.getItem("username");             -- retrieve  --> "Alice"
+    localStorage.removeItem("username");          -- delete
+
+
+--------------------------------------------------------------------------------
+ IDs AND CLASSES
+--------------------------------------------------------------------------------
+
+    id="name"
+        A unique identifier -- only ONE element per page should have a given id.
+        Used to target a specific element in CSS or JavaScript.
+        In CSS: #myId { color: red; }
+
+    class="name"
+        A reusable label that can be applied to many elements.
+        In CSS: .myClass { font-size: 14px; }
+
+    You can add both to the same element:
+        <p id="intro" class="highlight">Welcome!</p>
+
+
+--------------------------------------------------------------------------------
+ COMPLETE HTML5 PAGE TEMPLATE
+--------------------------------------------------------------------------------
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="A simple example page">
+            <title>My Page</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+
+        <body>
+
+            <header>
+                <h1>My Website</h1>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </header>
+
+            <main>
+
+                <section>
+                    <h2>Welcome</h2>
+                    <p>This is the main section of my page.</p>
+                </section>
+
+                <article>
+                    <h2>Latest Post</h2>
+                    <p>Article content goes here.</p>
+                </article>
+
+                <aside>
+                    <p>Related links or side info here.</p>
+                </aside>
+
+            </main>
+
+            <footer>
+                <p>&copy; 2025 My Name. All rights reserved.</p>
+            </footer>
+
+            <script src="script.js"></script>
+
+        </body>
+
+    </html>
+
+
+================================================================================
